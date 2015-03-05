@@ -209,7 +209,7 @@ def main():
     if a != None:
       for white_list in wdata["white_list"]:
         if ( a.group(1) == wdata["defaults"]["bssid"] and a.group(2) != white_list):       
-          airmon = subprocess.Popen(airsuite_path + "aireplay-ng -0 1 -a "+ a.group(1) +" -c "+ a.group(2) + " --ignore-negative-one mon0", \
+          airmon = subprocess.Popen(airsuite_path + "aireplay-ng -0 1 -a "+ a.group(1) +" -c "+ a.group(2) + " mon0", \
             shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
           airreturn_code = airmon.wait()
           if airreturn_code == 0:
