@@ -41,7 +41,7 @@ forced_params = False
 def root():
 	import os
 	if os.geteuid() != 0:
-		return true
+		return False
 	
 def run_ifwconf():
   try : 
@@ -67,7 +67,7 @@ def get_interfaces_and_mac():
     temp = reglist['ifmac'].match(line.rstrip())
     if temp != None:
       found = True
-      wdata.update({temp.group(1):{"mac":temp.group(2),"channel":-1,"station":-1,"status":-1,"essid":-1})
+      wdata.update({temp.group(1):{"mac":temp.group(2),"channel":-1,"station":-1,"status":-1,"essid":-1}})
 
       wdata["defaults"]["iface"] = temp.group(1)
       try:
